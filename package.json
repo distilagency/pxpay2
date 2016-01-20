@@ -22,6 +22,9 @@
     "transactions"
   ],
   "author": "Kevin Isom <kevin.isom@gmail.com>",
+  "contributors" : [
+    {"name": "Tim P"}
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/unkn0wn-kgb/pxpay/issues"
