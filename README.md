@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Kevnz/pxpay.png?branch=master)](https://travis-ci.org/Kevnz/pxpay)
+[![Build Status](https://travis-ci.org/unkn0wn-kgb/pxpay.png?branch=master)](https://travis-ci.org/unkn0wn-kgb/pxpay)
 
 pxpay
 =====
