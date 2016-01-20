@@ -64,7 +64,6 @@ module.exports = {
         if (logOutput) {
             console.log(dpsData);
         }
-        
 
         return xml(dpsData);
     },
@@ -78,7 +77,9 @@ module.exports = {
         var dpsData = {
             ProcessResponse: dataPayload
         };
-        console.log(dpsData);
+        if (logOutput) {
+            console.log(dpsData);
+        }
         return xml(dpsData);
     },
     request: function (details, callback) {
@@ -119,7 +120,38 @@ module.exports = {
         
     },
     parseResults: function(details, callback) {
-        var dpsData = this.generateRequest(details);
-        console.log(dpsData);
+        var dpsData = this.generateResponse(details);
+
+        request({
+            uri: url,
+            method: 'POST',
+            body: dpsData
+        }, function responseCallback (err, res, body) {
+            process.nextTick(function responseHandler () {
+                if(err) {
+                    process.nextTick(function(){
+                        callback(err);
+                    });
+                } else {
+                    var parser = new require('xml2js').Parser({ explicitArray: false});
+                    process.nextTick(function(){
+                        parser.parseString(body, function parserHandler (error, result){
+
+                            if (logOutput) {
+                                console.log(error);
+                            }
+                            if(result.Response.$.valid === '1'){
+                                process.nextTick(function(){ callback(null, result.Response); });
+                            } else if (error) {
+                                process.nextTick(function(){ callback(error); });
+                            } else {
+                                process.nextTick(function(){ callback({message: "result did not return correct code", result: result });});
+                            }
+                        });
+                    });
+                }
+
+            });
+        });
     }
 };
