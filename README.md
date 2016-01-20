@@ -2,9 +2,12 @@
 
 pxpay
 =====
+This is fork from https://github.com/Kevnz/pxpay
+
+Added aditional feature of parsing results of DPS transaction
 
 PxPay implementation for node.js
-
+Initial URL Request
 ```
 var pxpay = require('pxpay');
 pxpay.request({
@@ -16,6 +19,20 @@ pxpay.request({
     addCard: 1,
     successURL: 'http://example.com/success',
     failURL: 'http://example.com/fail'
+}, function submitcallback (err, result) {
+
+    result.$.valid; //=== 1
+
+});
+```
+
+Parsing DPS Return results
+```
+var pxpay = require('pxpay');
+pxpay.request({
+    user: 'TestAccount',
+    password: 'password',
+    Response: 'encrypted-token-result-from-dps'
 }, function submitcallback (err, result) {
 
     result.$.valid; //=== 1
