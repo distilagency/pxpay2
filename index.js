@@ -9,12 +9,12 @@ var FAIL_STATUS = 0;
 module.exports = {
     generateRequest: function (details) {
         var dataPayload = [
-                { PxPayUserId: details.user },
-                { PxPayKey: details.password },
-                { TxnType: details.transactionType || 'Purchase' },
-                { AmountInput: details.amount },
-                { CurrencyInput: details.currency || 'NZD' }
-            ];
+            { PxPayUserId: details.user },
+            { PxPayKey: details.password },
+            { TxnType: details.transactionType || 'Purchase' },
+            { AmountInput: details.amount },
+            { CurrencyInput: details.currency || 'NZD' }
+        ];
         if (details.successURL ) {
             dataPayload.push( { UrlSuccess: details.successURL });
         }
@@ -46,10 +46,26 @@ module.exports = {
             dataPayload.push({ EnableAddBillCard: details.addCard });
         }
         if (details.dpsBillingId) {
-           dataPayload.push({ DpsBillingId: details.dpsBillingId });
+            dataPayload.push({ DpsBillingId: details.dpsBillingId });
+        }
+        if (details.response) {
+            dataPayload.push({Response: details.response});
         }
         var dpsData = {
             GenerateRequest: dataPayload
+        };
+
+        return xml(dpsData);
+    },
+    generateResponse: function (details) {
+        var dataPayload = [
+            { PxPayUserId: details.user },
+            { PxPayKey: details.password },
+            { Response: details.response}
+        ];
+
+        var dpsData = {
+            ProcessResponse: dataPayload
         };
         console.log(dpsData);
         return xml(dpsData);
@@ -89,5 +105,9 @@ module.exports = {
     },
     process: function () {
         
+    },
+    parseResults: function(details, callback) {
+        var dpsData = this.generateRequest(details);
+        console.log(dpsData);
     }
 };

@@ -53,5 +53,18 @@ describe('requestGeneration', function() {
         assert.equal(addref, 'Test', "The Node value should be Test");
         done();
     });
+    it('request should have response parameter', function (done) {
+        var options ={
+            user: 'TestAccount',
+            password: 'password',
+            response: '0000030032534793003fd4ca40de75bb'
+        };
+        var rq = pxpay.generateResponse(options);
+        var doc = new dom().parseFromString(rq);
+        console.log(doc.toString());
+        var token = xpath.select("/ProcessResponse/Response/text()", doc).toString();
+        assert.equal(token, '0000030032534793003fd4ca40de75bb', "The Node value should be 0000030032534793003fd4ca40de75bb");
+        done();
+    });
 });
  

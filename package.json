@@ -1,14 +1,14 @@
 {
-  "name": "pxpay",
-  "version": "1.0.1",
-  "description": "A node module for using the Payment Express PXPay 2.0 service for payment processing",
+  "name": "pxpay2",
+  "version": "0.0.1",
+  "description": "A node module for using the Payment Express PXPay 2.0 service for payment processing including response parsing",
   "main": "index.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Kevnz/pxpay.git"
+    "url": "git://github.com/Unkn0wn-kgb/pxpay.git"
   },
   "keywords": [
     "dsp",
@@ -24,7 +24,7 @@
   "author": "Kevin Isom <kevin.isom@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kevnz/pxpay/issues"
+    "url": "https://github.com/unkn0wn-kgb/pxpay/issues"
   },
   "dependencies": {
     "xml": "0.0.8",
@@ -43,5 +43,9 @@
     "tap": "^0.7.1",
     "xmldom": "~0.1.16",
     "xpath": "0.0.5"
+  },
+  "homepage": "https://github.com/Unkn0wn-kgb/pxpay#readme",
+  "directories": {
+    "test": "tests"
   }
 }
