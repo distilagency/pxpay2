@@ -7,7 +7,9 @@ This is fork from https://github.com/Kevnz/pxpay
 Added aditional feature of parsing results of DPS transaction
 
 PxPay implementation for node.js
+
 Initial URL Request
+
 ```
 var pxpay = require('pxpay2');
 pxpay.request({
@@ -25,8 +27,8 @@ pxpay.request({
 
 });
 ```
-
 Parsing DPS Return results
+
 ```
 var pxpay = require('pxpay2');
 pxpay.request({
