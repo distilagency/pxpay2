@@ -58,6 +58,9 @@ module.exports = {
         if (details.response) {
             dataPayload.push({Response: details.response});
         }
+        if (details.opt) {
+            dataPayload.push({Opt: details.opt});
+        }
         var dpsData = {
             GenerateRequest: dataPayload
         };
