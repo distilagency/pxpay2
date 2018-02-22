@@ -1,6 +1,6 @@
 {
   "name": "pxpay2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A node module for using the Payment Express PXPay 2.0 service for payment processing including response parsing",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,10 @@
     "transactions"
   ],
   "author": "Kevin Isom <kevin.isom@gmail.com>",
-  "contributors" : [
-    {"name": "Tim P"}
+  "contributors": [
+    {
+      "name": "Tim P"
+    }
   ],
   "license": "MIT",
   "bugs": {
